@@ -1,0 +1,7 @@
+<h1>Task</h1>
+<%= @task.title %>
+<%= @task.category %>
+<%= @task.priority %>
+<%= @task.is_completed %>
+<%= link_to 'Back', tasks_path %>
+<%= link_to 'Delete', task_path(@task), method: :delete %>
