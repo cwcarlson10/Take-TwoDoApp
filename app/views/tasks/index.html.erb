@@ -1,10 +1,23 @@
-<h1>To Do List</h1>
-<% @tasks.each do |task| %>
-  <%= task.title %>
-  <%= task.category %>
-  <%= task.priority %>
-  <%= task.is_completed %>
-  <%= link_to 'See Task', task_path(task.id) %>
-  <%= link_to 'Edit Task', edit_task_path(task.id) %>
-<% end %>
+<h1 class="text-center">To Do List</h1>
+<head>
+  <ul class="list-group list-inline row">
+      <li class="list-group-item col-md-2 active text-center">Title</li>
+      <li class="list-group-item col-md-2 active text-center">Catagory</li>
+      <li class="list-group-item col-md-2 active text-center">Priority</li>
+      <li class="list-group-item col-md-2 active text-center">Status</li>
+      <li class="list-group-item col-md-4 active text-center">Options</li>
+  </ul>
+</head>
+<body>
+  <% @tasks.each do |task| %>
+    <ul class="list-group list-inline row">
+      <li class="list-group-item col-md-2"><%= task.title %></li>
+      <li class="list-group-item col-md-2"><%= task.category %></li>
+      <li class="list-group-item col-md-2 text-center"><%= task.priority %></li>
+      <li class="list-group-item col-md-2"><%= task.is_completed %></li>
+      <li class="list-group-item col-md-2 text-center"><%= link_to 'See Task', task_path(task.id) %></li>
+      <li class="list-group-item col-md-2 text-center"><%= link_to 'Edit Task', edit_task_path(task.id) %></li>
+    </ul>
+  <% end %>
+</body>
 <%= link_to 'New Task', new_task_path %>

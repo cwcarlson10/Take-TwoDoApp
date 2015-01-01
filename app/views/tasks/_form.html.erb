@@ -2,6 +2,6 @@
   <%= f.input :title %>
   <%= f.input :category %>
   <%= f.input :priority %>
-  <%= f.input :is_completed %>
+  <%= f.input :is_completed, as: :radio_buttons, collection: @status %>
   <%= f.button :submit %>
 <% end %>

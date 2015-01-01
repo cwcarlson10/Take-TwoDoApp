@@ -1,7 +1,29 @@
 <h1>Task</h1>
-<%= @task.title %>
-<%= @task.category %>
-<%= @task.priority %>
-<%= @task.is_completed %>
-<%= link_to 'Back', tasks_path %>
-<%= link_to 'Delete', task_path(@task), method: :delete %>
+<head>
+  <ul class="list-group list-inline row">
+      <li class="list-group-item col-md-2 active text-center">Title</li>
+      <li class="list-group-item col-md-2 active text-center">Catagory</li>
+      <li class="list-group-item col-md-2 active text-center">Priority</li>
+      <li class="list-group-item col-md-2 active text-center">Status</li>
+      <li class="list-group-item col-md-4 active text-center">Options</li>
+  </ul>
+</head>
+<body>
+  <ul class="list-group list-inline row">
+    <li class="list-group-item col-md-2"><%= @task.title %></li>
+    <li class="list-group-item col-md-2"><%= @task.category %></li>
+    <li class="list-group-item col-md-2 text-center"><%= @task.priority %></li>
+    <li class="list-group-item col-md-2"><%= simple_form_for @task do |f| %>
+              <%= f.collection_radio_buttons :is_completed, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+              <%= f.button :submit, class: "follow-button" %>
+            <% end %></li>
+    <li class="list-group-item col-md-2 text-center"><%= link_to 'Delete', task_path(@task), method: :delete %></li>
+    <li class="list-group-item col-md-2 text-center"><%= link_to 'Back', tasks_path %></li>
+  </ul>
+</body>
+
+
+
+
+
+

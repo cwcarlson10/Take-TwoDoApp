@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @status = ["Yes", "No"]
   end
 
   def create
