@@ -14,9 +14,13 @@
       <li class="list-group-item col-md-2"><%= task.title %></li>
       <li class="list-group-item col-md-2"><%= task.category %></li>
       <li class="list-group-item col-md-2 text-center"><%= task.priority %></li>
-      <li class="list-group-item col-md-2"><%= task.is_completed %></li>
+      <li class="list-group-item col-md-2">
+        <%= simple_form_for task do |f| %>
+          <%= f.collection_radio_buttons :is_completed, [[true, 'Completed'] ,[false, 'Not Completed']], :first, :last %>
+        <% end %>
+      </li>
       <li class="list-group-item col-md-2 text-center"><%= link_to 'See Task', task_path(task.id) %></li>
-      <li class="list-group-item col-md-2 text-center"><%= link_to 'Edit Task', edit_task_path(task.id) %></li>
+      <li class="list-group-item col-md-2 text-center"><%= link_to 'Delete', task_path(task), method: :delete %></li>
     </ul>
   <% end %>
 </body>

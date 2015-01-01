@@ -1,7 +1,7 @@
 <%= simple_form_for @task do |f| %>
   <%= f.input :title %>
   <%= f.input :category %>
-  <%= f.input :priority %>
+  <%= f.input :priority, as: :select, collection: @priority_list %>
   <%= f.input :is_completed, as: :radio_buttons, collection: @status %>
   <%= f.button :submit %>
 <% end %>
